@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purple Glow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #F8F8FF;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #9B59B6, #FAD0C4);
+            padding: 40px 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        nav {
+            margin-top: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #9B59B6;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 8px 0;
+            font-size: 1.1em;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .gallery-item .description {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .gallery-item .description h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .gallery-item .description p {
+            font-size: 1em;
+            color: #777;
+        }
+
+        .prices {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .price-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .price-card h3 {
+            color: #9B59B6;
+            margin-bottom: 10px;
+        }
+
+        .price-card p {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background: #25D366;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+        }
+
+        footer {
+            background: #9B59B6;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Purple Glow</h1>
+    <p>Brilla con estilo, uñas que enamoran</p>
+    <nav>
+        <a href="#servicios">Servicios</a>
+        <a href="#galeria">Galería</a>
+        <a href="#precios">Precios</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
+
+<section id="servicios">
+    <h2>Servicios</h2>
+    <ul>
+        <li><strong>Manicure Tradicional</strong></li>
+        <li><strong>Manicure Semipermanente</strong></li>
+        <li><strong>Manicure Acrílico</strong></li>
+        <li><strong>Manicure Poly Gel</strong></li>
+        <li><strong>Manicure Rubber Base</strong></li>
+        <li><strong>Pedicure Tradicional</strong></li>
+        <li><strong>Pedicure Semipermanente</strong></li>
+        <li><strong>Pedicure Spa</strong></li>
+    </ul>
+</section>
+
+<section id="galeria" class="gallery">
+    <div class="gallery-item">
+        <img src="https://cdn.pixabay.com/photo/2016/03/05/19/02/nail-1239293_960_720.jpg" alt="Uñas minimalistas">
+        <div class="description">
+            <h3>Uñas Minimalistas</h3>
+            <p>Elegante y sutil, ideal para cualquier ocasión.</p>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="https://cdn.pixabay.com/photo/2017/08/30/01/22/beauty-2697943_960_720.jpg" alt="Uñas elegantes">
+        <div class="description">
+            <h3>Uñas Neutras</h3>
+            <p>Colores neutros que combinan con todo.</p>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="https://cdn.pixabay.com/photo/2017/08/30/01/22/beauty-2697943_960_720.jpg" alt="Uñas naturales">
+        <div class="description">
+            <h3>Uñas Naturales</h3>
+            <p>Para un look fresco y natural.</p>
+        </div>
+    </div>
+</section>
+
+<section id="precios">
+    <h2>Precios</h2>
+    <div class="prices">
+        <div class="price-card">
+            <h3>Manicure Tradicional</h3>
+            <p>$23.900</p>
+        </div>
+        <div class="price-card">
+            <h3>Manicure Semipermanente</h3>
+            <p>$66.900</p>
+        </div>
+        <div class="price-card">
+            <h3>Pedicure Semipermanente</h3>
+            <p>$72.900</p>
+        </div>
+        <div class="price-card">
+            <h3>Manicure Acrílico</h3>
+            <p>$45.900</p>
+        </div>
+        <div class="price-card">
+            <h3>Manicure Poly Gel</h3>
+            <p>$55.900</p>
+        </div>
+        <div class="price-card">
+            <h3>Manicure Rubber Base</h3>
+            <p>$49.900</p>
+        </div>
+        <div class="price-card">
+            <h3>Pedicure Tradicional</h3>
+            <p>$35.900</p>
+        </div>
+        <div class="price-card">
+            <h3>Pedicure Spa</h3>
+            <p>$60.900</p>
+        </div>
+    </div>
+</section>
+
+<section id="contacto">
+    <h2>Contacto</h2>
+    <p>Haz clic en el botón para agendar tu cita vía WhatsApp:</p>
+    <a class="whatsapp-btn" href="https://wa.me/573001234567" target="_blank">Enviar mensaje</a>
+</section>
+
+<footer>
+    <p>&copy; 2025 Purple Glow. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>
