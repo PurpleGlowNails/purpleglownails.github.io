@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+    <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -202,7 +203,7 @@
       overflow: hidden;
     }
 
-    .service-card::before {
+    .service-card::before, .product-card::before, .effect-card::before {
       content: "";
       position: absolute;
       top: 0;
@@ -212,20 +213,25 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      opacity: 0.15;
+      opacity: 0.5; 
       z-index: 1;
       transition: opacity 0.3s ease;
     }
 
-    .service-card > * {
+    .service-card > *, .product-card > *, .effect-card > * {
       position: relative;
       z-index: 2;
     }
 
     .service-card:hover::before {
-      opacity: 0.25;
+      opacity: 0.25; 
     }
 
+    .product-card:hover::before, .effect-card:hover::before {
+      opacity: 0.6; 
+    }
+
+    /* Servicios */
     .service-card:nth-child(1)::before {
       background-image: url('https://lh3.googleusercontent.com/pw/AP1GczPhma3Aj90BnuPXXtbaIiEb8CmmBnd6hG3yh-knSwOr8mG7CqCOXQRzRgchxaKOqre8w1wi7Y2CBVXdbfnNrQv6WUzA5EDkZorW1aQX7hNBV86osSYWTpZbxoGXNLN7uvSEdPgKN3EuXwPaeHHrLdG38w=w1640-h1640-s-no');
     }
@@ -256,6 +262,72 @@
 
     .service-card:nth-child(8)::before {
       background-image: url('https://lh3.googleusercontent.com/pw/AP1GczMLoHT8Ov5qJ-Gn2xQXTpFJGVdPupbJcJdSYzOns_zGCQjcZrpJ-0zDIcfozqlGGmZwyeZNHsAJ4gJiCX1MYPc_T4FJrDzioQsAIpgjd8an4DhmmFP75R6E-cupPyXxgIEoxJdvZRsAT3Z8Piv2reAD5A=w1640-h1640-s-no');
+    }
+
+    /* Productos */
+    .product-card:nth-child(1)::before {
+      background-image: url('https://lh3.googleusercontent.com/pw/AP1GczOAS2II0zXDyMhZMVMFtMYoglrRaGdcByf-badrwQxDaz8SWgm3Jmx6gJV58b2asqc_ztihHhLQ3jTxuJK3mVd-jA3XDH0zBwh3qf9iBEtY0IUXW_WsUfzsas-bSTGofeUrlgImnUdfw4QO-ipmcJwZug=w1640-h1640-s-no');
+    }
+
+    .product-card:nth-child(2)::before {
+      background-image: url('https://lh3.googleusercontent.com/pw/AP1GczO0pfGHDQ5g_yeRUVUwJUPKeF6UZHxb9fWl40baK6c6tTfLqRKv4SdbstFavbvCYfMnpoOuXVIKkAgW1ALgZXjeK1oqSIFEuLSP38bItzEF-luV_vZZdYYx0viAtT-DRR-P0du3YEqUPgRbksmJzo-KVQ=w1640-h1640-s-no');
+    }
+
+    .product-card:nth-child(3)::before {
+      background-image: url('https://lh3.googleusercontent.com/pw/AP1GczNoez1YyyT5WT_0qAhIdje8j2Y3tUvrjqmp20_tQa_qCQLPGZzBwskkr1BrzdhTjWcQlNidqeeBXfpv4PCWwRppagMRq9hRf4M131ILmV2X1UlKv-8J2nGrxtM__i-Ycyib9UNK3y2oyJJUNhBlNM1L0w=w1640-h1640-s-no');
+    }
+
+    .product-card:nth-child(4)::before {
+      background-image: url('https://lh3.googleusercontent.com/pw/AP1GczNRK21rLOsDTCHyGxscmjqlZ-vrgjZMgYs5Fx0sCkB9pdEZFxdFF7tEmZ7ce6Sr_AGSR5Sep_Ax4slLvsShPmbj5jE3u-bgnhq-pP6CXN4NVvLtZ-E2R_90aGo_re2KN_Pp5Qp7zhmJMihddPRXnXyRcQ=w1640-h1640-s-no');
+    }
+
+    .product-card:nth-child(5)::before {
+      background-image: url('https://lh3.googleusercontent.com/pw/AP1GczNmb-2_tLVErhXFG7alDvz3FdPTRwlIr4am_sbQJVejQE7KQ1xjUzGC606zmb8_2b6m0Xv5LIhq-zbihKzCVyqHAG4ienr4w7B8rDsWm3V4V2mYfJXG-F1oG91MqTzVfamQt2JMjdp7U7jUKlKZNZJVcQ=w1640-h1640-s-no');
+    }
+
+    .product-card:nth-child(6)::before {
+      background-image: url('https://lh3.googleusercontent.com/pw/AP1GczPSOJoZcRclXJsZbJ9I30GxsoG2kgkpPacy9gi6oSgFm0yAA66ljIK40tzL7MTCJofPPimL-hQpggzlw_MFe1tzy00BPn4MUPzJcy012IDrCHfx8Wo52NHbaqn99KsFj5Q2RScuwpk2NmoTn1NSyISVEA=w1640-h1640-s-no');
+    }
+
+    .product-card:nth-child(7)::before {
+      background-image: url('https://lh3.googleusercontent.com/pw/AP1GczM8KHY9qbmNdYT1zmlh9-CCW5aXErWUHHIUnUnEEFFLnCOBWNYFonQ8uXhQ9uRLLnW3n-OFMYcQVakbPbC_DqOTVEt0mN6dMzmKoxqLSzI15AGdu9G287ImW3L5bik3YyqK_QWsJhT2Vl7hMMlWKFg9sw=w1640-h1640-s-no');
+    }
+
+    .product-card:nth-child(8)::before {
+      background-image: url('https://lh3.googleusercontent.com/pw/AP1GczPCnq6m35IUr0y3VFYDIbB76Rr2PgoyonxqE5Xwx9u8x3jqheSJ5vw9M1e9YD-SZmoNFvF8f5XoQkn1hATSIRcb8j6brTM3BNdrM-pVx0spJ1pVMkL73k7mhuxUEGaFS77AW_OzTi3vrlmbtxww5BDeRQ=w1640-h1640-s-no');
+    }
+
+    /* Efectos */
+    .effect-card:nth-child(1)::before {
+      background-image: url('https://lh3.googleusercontent.com/pw/AP1GczPKT_E5DuyHHOZLuPHWXuJ0e2LLD7u-gpNz7TG-hnTLxgSF4-b1VQgzrwRMWHCudSPCK1SLrwDCNjjPxemF-D61MTCrEe8zsprZRE0tHcfBH1cI__-K83O6y2kN4jtwr4RAyorLmxG6ppWoO2oNRB6bLw=w554-h554-s-no');
+    }
+
+    .effect-card:nth-child(2)::before {
+      background-image: url('https://lh3.googleusercontent.com/pw/AP1GczO-TPeq8m9W0NVqTQ-x_KoWc14R_l82gtFwrIm_f1P8xeYVu0555_aONNgUyTD9d-X9c7J6IO_kh0W1WiEVpKDzet0pgSdC6lrk71iJKVz1MGN13fSyM7r0kwTR_4tt7Lum8mixXespZVWmpDYdhq2DRw=w1640-h1640-s-no');
+    }
+
+    .effect-card:nth-child(3)::before {
+      background-image: url('https://lh3.googleusercontent.com/pw/AP1GczNbvTzxszC4PqQL-Z8VDIP_11uZ-_1bRxXAwJfArjP156KPlUqJUdbbQHIBxjr1bIr5gbu4AtJiEeUBJ5rZ1eCgfO6K6uIQyCxDKWc879JGodulZdY83xEKbxtVdb1jKcOIkvYqLRPNCMIxfz6p-fT9Og=w1640-h1640-s-no');
+    }
+
+    .effect-card:nth-child(4)::before {
+      background-image: url('https://lh3.googleusercontent.com/pw/AP1GczPYJyqt-PQm_4jXy_fAG_1ojxBdtHXp04eRVMeXn-rvcHkiwhGwVcFMntfRNKq4ra4COHt_NjO5sHxSuacOyfbSyxGjoW1ExFeVzGWhXqbCci68HIyDy16_1bPoVLaCts3SfxpKlwzjDHxW8HS7e_nH8g=w2460-h1640-s-no');
+    }
+
+    .effect-card:nth-child(5)::before {
+      background-image: url('https://lh3.googleusercontent.com/pw/AP1GczMWKN1zpwY8oIQsZ1tnxeDYHHUl2ZN6SyY1NLYjgM0Bu_9r4bTAHPOv9NtZ6D4vPZQTBm_DHiypwtHB9JdlZ7qnBYjgeybO2OokUAjuADH0sTjEhxj4OpfxnQlHMzkruKENo6_8AYYdRlcVAcAOYT0IOA=w1640-h1640-s-no');
+    }
+
+    .effect-card:nth-child(6)::before {
+      background-image: url('https://lh3.googleusercontent.com/pw/AP1GczN2g3r4s5CBDimCOhREm1Nv3j4sVx6Ig2gq6ILRXQuE5mKpiAsu8eZ57Mdfumu_ZpvCWd3v7KgSBOefO7L8-fwqD6RVWIjylOVCC0yUgdI2fYd8_m1uec3J9iqwrjeM5RMSzd3sqiciOr2oDXI9rGwJ9w=w470-h653-s-no');
+    }
+
+    .effect-card:nth-child(7)::before {
+      background-image: url('https://lh3.googleusercontent.com/pw/AP1GczO_wljksC8rrmwTq9aeAYU-p5OcUbhsk4BgplRg3a9OsT8s27IUaWzTEoIfgwaRDs2JLZUkTXhcuYF9wcJ5HPu0sgJYaMrPUsYOgM5LzkGBs_igO72uB9gE4_SZPPZEDE1W1gAnpepkufNa-O_n0crpRg=w650-h400-s-no');
+    }
+
+    .effect-card:nth-child(8)::before {
+      background-image: url('https://lh3.googleusercontent.com/pw/AP1GczM7mrQ8Slqi-cxmSowQbMnkl6C34la-znKfXyn2CuAzbSwQN3G3gI7kbWD-f-2YCfcAvqND6m_tCh2Il587IWZFhUduEizbrUVKr6plX4XM-UN60X8FeLxaSfBQsgn0gV48jPsxn336HCFPnd6Yl7fiLw=w736-h629-s-no');
     }
 
     .service-card:hover, .product-card:hover, .effect-card:hover {
@@ -398,7 +470,7 @@
     }
 
     .contact-item a:hover {
-      opacity: 0.8;
+      opacity: 0.5;
     }
 
     .social-media {
@@ -552,42 +624,42 @@
   <h2>Servicios</h2>
   <div class="services-grid">
     <div class="service-card">
-      <span>💅</span>
+      <span></span> 
       <h4>Manicure Tradicional</h4>
       <p>Cuidado clásico para unas uñas perfectas</p>
     </div>
     <div class="service-card">
-      <span>💅</span>
+      <span></span>
       <h4>Manicure Semipermanente</h4>
       <p>Duración prolongada con acabado profesional</p>
     </div>
     <div class="service-card">
-      <span>💅</span>
+      <span></span>
       <h4>Manicure Acrílico</h4>
       <p>Extensión y fortalecimiento de uñas</p>
     </div>
     <div class="service-card">
-      <span>💅</span>
+      <span></span>
       <h4>Manicure Poly Gel</h4>
       <p>Tecnología avanzada para uñas resistentes</p>
     </div>
     <div class="service-card">
-      <span>💅</span>
+      <span></span>
       <h4>Manicure Soft Gel (Press On)</h4>
       <p>Aplicación rápida con resultados increíbles</p>
     </div>
     <div class="service-card">
-      <span>💅</span>
+      <span></span>
       <h4>Manicure Rubber Base</h4>
       <p>Base flexible para mayor durabilidad</p>
     </div>
     <div class="service-card">
-      <span>🦶</span>
+      <span></span>
       <h4>Pedicure Tradicional</h4>
       <p>Cuidado completo para tus pies</p>
     </div>
     <div class="service-card">
-      <span>🦶</span>
+      <span></span> 
       <h4>Pedicure Semipermanente</h4>
       <p>Pedicure duradero con acabado brillante</p>
     </div>
@@ -728,42 +800,34 @@
   <h2>Nuestros Productos y Herramientas</h2>
   <div class="products-grid">
     <div class="product-card">
-      <span>💅</span>
       <h4>Esmaltes Premium</h4>
       <p>Colores vibrantes y duraderos</p>
     </div>
     <div class="product-card">
-      <span>🛠️</span>
       <h4>Limas Profesionales</h4>
       <p>Herramientas de alta calidad</p>
     </div>
     <div class="product-card">
-      <span>✨</span>
       <h4>Base y Top Coat</h4>
       <p>Protección y acabado perfecto</p>
     </div>
     <div class="product-card">
-      <span>🎨</span>
       <h4>Decoraciones y Cristales</h4>
       <p>Accesorios para nail art</p>
     </div>
     <div class="product-card">
-      <span>🔧</span>
       <h4>Herramientas de Cutícula</h4>
       <p>Cuidado profesional de cutículas</p>
     </div>
     <div class="product-card">
-      <span>💡</span>
       <h4>Lámpara UV/LED</h4>
       <p>Secado rápido y uniforme</p>
     </div>
     <div class="product-card">
-      <span>🧴</span>
       <h4>Aceites Nutritivos</h4>
       <p>Hidratación y cuidado</p>
     </div>
     <div class="product-card">
-      <span>🎪</span>
       <h4>Kit de Nail Art</h4>
       <p>Todo para diseños creativos</p>
     </div>
@@ -774,42 +838,42 @@
   <h2>Efectos</h2>
   <div class="effects-grid">
     <div class="effect-card">
-      <span>✨</span>
+      <span></span> 
       <h4>Efecto Espejo</h4>
       <p>Acabado ultra brillante</p>
     </div>
     <div class="effect-card">
-      <span>🌟</span>
+      <span></span>
       <h4>Glitter y Brillos</h4>
       <p>Destellos que cautivan</p>
     </div>
     <div class="effect-card">
-      <span>🔥</span>
+      <span></span>
       <h4>Ombré Degradado</h4>
       <p>Transiciones suaves de color</p>
     </div>
     <div class="effect-card">
-      <span>🌈</span>
+      <span></span>
       <h4>Cambio de Color</h4>
       <p>Magia cromática en tus uñas</p>
     </div>
     <div class="effect-card">
-      <span>💎</span>
+      <span></span>
       <h4>Acabado Mate</h4>
       <p>Elegancia aterciopelada</p>
     </div>
     <div class="effect-card">
-      <span>🌙</span>
+      <span></span>
       <h4>Efecto Holográfico</h4>
       <p>Reflejos iridiscentes</p>
     </div>
     <div class="effect-card">
-      <span>🎭</span>
+      <span></span> 
       <h4>Textura 3D</h4>
       <p>Dimensión y relieve</p>
     </div>
     <div class="effect-card">
-      <span>⭐</span>
+      <span></span> 
       <h4>Cat Eye Magnético</h4>
       <p>Efecto felino hipnotizante</p>
     </div>
