@@ -1,22 +1,38 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Purple Glow Nails</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  
   <style>
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
 
     body {
-  border: 15px solid #333;
-  border-radius: 30px;
-  box-sizing: border-box;
-  padding: 20px;
-}
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 0;
+      background: #F8F8FF;
+      color: #333;
+      border: 20px solid #9B59B6;
+      border-radius: 30px;
+      min-height: calc(100vh - 40px);
+      overflow-x: hidden;
+      box-shadow: 0 0 40px rgba(155, 89, 182, 0.5), inset 0 0 20px rgba(155, 89, 182, 0.1);
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      right: -20px;
+      bottom: -20px;
+      border: 3px solid rgba(155, 89, 182, 0.3);
+      border-radius: 35px;
+      z-index: -1;
+    }
 
     header {
       background: url('https://lh3.googleusercontent.com/pw/AP1GczPwUT9m8Z0s_ZoLe_7V-Vw7Do8dFuU_triSKexJxZEMgaGji46Cga4ANCQrU5DZBCk6w2jnoM4Dm25GdUxSYFBRlvRlSB_1yUlMUWW3se7moyHijzENHbfljjHoiKaP6FUr1zs37vUwoYSqtWTVvOaeiQ=w1200-h1599-s-no?authuser=0') center/cover no-repeat;
@@ -27,6 +43,8 @@
       text-align: center;
       color: #fff;
       position: relative;
+      border-radius: 10px 10px 0 0;
+      margin: -20px -20px 0 -20px;
     }
 
     header::before {
@@ -36,6 +54,7 @@
       width: 100%; height: 100%;
       background-color: rgba(0,0,0,0.5);
       z-index: 1;
+      border-radius: 10px 10px 0 0;
     }
 
     .header-content {
@@ -50,6 +69,7 @@
       font-size: 3.5em;
       margin: 0;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+      font-weight: bold;
     }
 
     .header-content p {
@@ -78,21 +98,35 @@
       position: absolute;
       bottom: 20px;
       width: 100%;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
       z-index: 2;
+      flex-wrap: wrap;
+      padding: 0 20px;
     }
 
     nav a {
+      background: linear-gradient(145deg, #ffffff 0%, #f8f4ff 100%);
+      border: 2px solid rgba(155, 89, 182, 0.1);
+      border-radius: 15px;
+      padding: 8px 15px;
       text-decoration: none;
-      color: #fff;
-      margin: 0 15px;
+      color: #9B59B6;
       font-weight: bold;
-      font-size: 1.1em;
-      transition: 0.3s;
+      font-size: 0.9em;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(155, 89, 182, 0.15);
+      white-space: nowrap;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(155, 89, 182, 0.25);
+      background: linear-gradient(145deg, #ffffff 0%, #f0e6ff 100%);
+      border: 2px solid rgba(155, 89, 182, 0.3);
+      color: #8B4A9C;
     }
 
     section {
@@ -100,7 +134,7 @@
       text-align: center;
     }
 
-    #servicios, #galeria, #precios {
+    #servicios, #galeria, #precios, #productos, #efectos {
       background: linear-gradient(-45deg, #f0e6ff, #ffe0f0, #e6d9ff, #ffd9ec);
       background-size: 400% 400%;
       animation: gradientShift 10s ease-in-out infinite;
@@ -125,7 +159,7 @@
       }
     }
 
-    #servicios::before {
+    #servicios::before, #galeria::before, #precios::before, #productos::before, #efectos::before {
       content: "";
       position: absolute;
       top: 0; left: 0;
@@ -134,16 +168,7 @@
       z-index: 1;
     }
 
-    #galeria::before, #precios::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(248, 248, 255, 0.3);
-      z-index: 1;
-    }
-
-    #servicios > *, #galeria > *, #precios > * {
+    #servicios > *, #galeria > *, #precios > *, #productos > *, #efectos > * {
       position: relative;
       z-index: 2;
     }
@@ -152,39 +177,55 @@
       font-size: 2em;
       margin-bottom: 20px;
       color: #9B59B6;
+      font-weight: bold;
     }
 
-    .services-grid {
+    .services-grid, .products-grid, .effects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
       padding: 20px;
     }
 
-    .service-card {
-      background: #fff;
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      font-size: 1.1em;
+    .service-card, .product-card, .effect-card {
+      background: linear-gradient(145deg, #ffffff 0%, #f8f4ff 100%);
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 8px 25px rgba(155, 89, 182, 0.15);
+      font-size: 1em;
       transition: all 0.3s ease;
       cursor: pointer;
+      border: 2px solid rgba(155, 89, 182, 0.1);
+      text-align: center;
     }
 
-    .service-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 25px rgba(155, 89, 182, 0.3);
-      background: linear-gradient(145deg, #ffffff 0%, #f8f8ff 100%);
-      border: 1px solid rgba(155, 89, 182, 0.2);
+    .service-card:hover, .product-card:hover, .effect-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(155, 89, 182, 0.25);
+      background: linear-gradient(145deg, #ffffff 0%, #f0e6ff 100%);
+      border: 2px solid rgba(155, 89, 182, 0.3);
     }
 
-    .service-card span {
-      font-size: 1.5em;
+    .service-card span, .product-card span, .effect-card span {
+      font-size: 2.5em;
       display: block;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
 
-    /* Ajuste de la galería: 3 columnas en escritorio, responsive abajo */
+    .service-card h4, .product-card h4, .effect-card h4 {
+      color: #9B59B6;
+      margin: 10px 0;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    .service-card p, .product-card p, .effect-card p {
+      color: #666;
+      margin: 0;
+      font-size: 0.9em;
+      line-height: 1.4;
+    }
+
     .gallery {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -219,6 +260,7 @@
     .gallery-item .description h3 {
       font-size: 1.2em;
       margin-bottom: 10px;
+      font-weight: bold;
     }
 
     .gallery-item .description p {
@@ -252,6 +294,7 @@
     .price-card h3 {
       color: #9B59B6;
       margin-bottom: 10px;
+      font-weight: bold;
     }
 
     .price-card p {
@@ -264,7 +307,8 @@
       color: #fff;
       text-align: center;
       padding: 30px 20px;
-      margin-top: 40px;
+      margin: 40px -20px -20px -20px;
+      border-radius: 0 0 10px 10px;
     }
 
     .footer-content {
@@ -280,6 +324,7 @@
       color: #fff;
       margin-bottom: 15px;
       font-size: 1.5em;
+      font-weight: bold;
     }
 
     .contact-item {
@@ -305,6 +350,7 @@
       color: #fff;
       margin-bottom: 15px;
       font-size: 1.3em;
+      font-weight: bold;
     }
 
     .social-icons {
@@ -347,7 +393,14 @@
       opacity: 0.8;
     }
 
-    /* Responsividad para la galería: 2 columnas en tablet, 1 en móvil */
+    /* Responsividad */
+    @media (max-width: 1024px) {
+      nav a {
+        margin: 0 8px;
+        font-size: 0.9em;
+      }
+    }
+
     @media (max-width: 900px) {
       .gallery {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -355,6 +408,45 @@
     }
 
     @media (max-width: 600px) {
+      body {
+        border-width: 15px;
+        border-radius: 20px;
+        margin: 15px;
+        box-shadow: 0 0 30px rgba(155, 89, 182, 0.4), inset 0 0 15px rgba(155, 89, 182, 0.1);
+      }
+
+      body::before {
+        top: -15px;
+        left: -15px;
+        right: -15px;
+        bottom: -15px;
+        border-radius: 25px;
+      }
+
+      nav {
+        gap: 8px;
+        padding: 0 15px;
+      }
+
+      nav a {
+        padding: 6px 10px;
+        font-size: 0.8em;
+      }
+
+      header {
+        border-radius: 5px 5px 0 0;
+        margin: -15px -15px 0 -15px;
+      }
+
+      header::before {
+        border-radius: 5px 5px 0 0;
+      }
+
+      footer {
+        margin: 40px -15px -15px -15px;
+        border-radius: 0 0 5px 5px;
+      }
+
       .gallery {
         grid-template-columns: 1fr;
         padding: 15px;
@@ -367,22 +459,30 @@
       .header-content p {
         font-size: 1rem;
       }
+
+      nav a {
+        margin: 0 5px;
+        font-size: 0.8em;
+      }
     }
   </style>
 </head>
 <body>
 
+<nav class="top-nav"></nav>
+
 <header>
   <div class="header-content">
     <h1>Purple Glow Nails</h1>
-    <p>
-      Uñas que brillan con estilo que enamoran</p>
+    <p>Uñas que brillan con estilo que enamoran</p>
     <a class="whatsapp-btn" href="https://wa.me/573168251053" target="_blank">Agendar por WhatsApp</a>
   </div>
   <nav>
     <a href="#servicios">Servicios</a>
     <a href="#galeria">Galería</a>
     <a href="#precios">Precios</a>
+    <a href="#productos">Productos</a>
+    <a href="#efectos">Efectos</a>
     <a href="#contacto">Contacto</a>
   </nav>
 </header>
@@ -390,14 +490,46 @@
 <section id="servicios">
   <h2>Servicios</h2>
   <div class="services-grid">
-    <div class="service-card"><span>💅</span>Manicure Tradicional</div>
-    <div class="service-card"><span>💅</span>Manicure Semipermanente</div>
-    <div class="service-card"><span>💅</span>Manicure Acrílico</div>
-    <div class="service-card"><span>💅</span>Manicure Poly Gel</div>
-    <div class="service-card"><span>💅</span>Manicure Soft Gel (Press On)</div>
-    <div class="service-card"><span>💅</span>Manicure Rubber Base</div>
-    <div class="service-card"><span>🦶</span>Pedicure Tradicional</div>
-    <div class="service-card"><span>🦶</span>Pedicure Semipermanente</div>
+    <div class="service-card">
+      <span>💅</span>
+      <h4>Manicure Tradicional</h4>
+      <p>Cuidado clásico para unas uñas perfectas</p>
+    </div>
+    <div class="service-card">
+      <span>💅</span>
+      <h4>Manicure Semipermanente</h4>
+      <p>Duración prolongada con acabado profesional</p>
+    </div>
+    <div class="service-card">
+      <span>💅</span>
+      <h4>Manicure Acrílico</h4>
+      <p>Extensión y fortalecimiento de uñas</p>
+    </div>
+    <div class="service-card">
+      <span>💅</span>
+      <h4>Manicure Poly Gel</h4>
+      <p>Tecnología avanzada para uñas resistentes</p>
+    </div>
+    <div class="service-card">
+      <span>💅</span>
+      <h4>Manicure Soft Gel (Press On)</h4>
+      <p>Aplicación rápida con resultados increíbles</p>
+    </div>
+    <div class="service-card">
+      <span>💅</span>
+      <h4>Manicure Rubber Base</h4>
+      <p>Base flexible para mayor durabilidad</p>
+    </div>
+    <div class="service-card">
+      <span>🦶</span>
+      <h4>Pedicure Tradicional</h4>
+      <p>Cuidado completo para tus pies</p>
+    </div>
+    <div class="service-card">
+      <span>🦶</span>
+      <h4>Pedicure Semipermanente</h4>
+      <p>Pedicure duradero con acabado brillante</p>
+    </div>
   </div>
 </section>
 
@@ -432,8 +564,7 @@
     <!-- Galería adicional (tus 10 imágenes) -->
     <div class="gallery-item">
       <img src="https://lh3.googleusercontent.com/pw/AP1GczOpvCfDaduwQBwKApjJTtcwzvJ5RZO35hBu__ls8u2YfI8GIQBrX8u1ySZwtyV84xOJ9_KZyQtC4JkjbMwwgSQVbhafKoMv83t4HOCaIQ6K-o_dwpIizlBJD3166c457Io5vtCkGMYdkZE4A-qefDKCCQ=w1200-h1600-s-no" alt="Nuevo diseño 1" loading="lazy">
-      <div class="description"><h3>🎀</h3><p>Toque moderno y 
-        ante.</p></div>
+      <div class="description"><h3>🎀</h3><p>Toque moderno y elegante.</p></div>
     </div>
 
     <div class="gallery-item">
@@ -532,6 +663,98 @@
     </div>
 </section>
 
+<section id="productos">
+  <h2>Nuestros Productos y Herramientas</h2>
+  <div class="products-grid">
+    <div class="product-card">
+      <span>💅</span>
+      <h4>Esmaltes Premium</h4>
+      <p>Colores vibrantes y duraderos</p>
+    </div>
+    <div class="product-card">
+      <span>🛠️</span>
+      <h4>Limas Profesionales</h4>
+      <p>Herramientas de alta calidad</p>
+    </div>
+    <div class="product-card">
+      <span>✨</span>
+      <h4>Base y Top Coat</h4>
+      <p>Protección y acabado perfecto</p>
+    </div>
+    <div class="product-card">
+      <span>🎨</span>
+      <h4>Decoraciones y Cristales</h4>
+      <p>Accesorios para nail art</p>
+    </div>
+    <div class="product-card">
+      <span>🔧</span>
+      <h4>Herramientas de Cutícula</h4>
+      <p>Cuidado profesional de cutículas</p>
+    </div>
+    <div class="product-card">
+      <span>💡</span>
+      <h4>Lámpara UV/LED</h4>
+      <p>Secado rápido y uniforme</p>
+    </div>
+    <div class="product-card">
+      <span>🧴</span>
+      <h4>Aceites Nutritivos</h4>
+      <p>Hidratación y cuidado</p>
+    </div>
+    <div class="product-card">
+      <span>🎪</span>
+      <h4>Kit de Nail Art</h4>
+      <p>Todo para diseños creativos</p>
+    </div>
+  </div>
+</section>
+
+<section id="efectos">
+  <h2>Efectos</h2>
+  <div class="effects-grid">
+    <div class="effect-card">
+      <span>✨</span>
+      <h4>Efecto Espejo</h4>
+      <p>Acabado ultra brillante</p>
+    </div>
+    <div class="effect-card">
+      <span>🌟</span>
+      <h4>Glitter y Brillos</h4>
+      <p>Destellos que cautivan</p>
+    </div>
+    <div class="effect-card">
+      <span>🔥</span>
+      <h4>Ombré Degradado</h4>
+      <p>Transiciones suaves de color</p>
+    </div>
+    <div class="effect-card">
+      <span>🌈</span>
+      <h4>Cambio de Color</h4>
+      <p>Magia cromática en tus uñas</p>
+    </div>
+    <div class="effect-card">
+      <span>💎</span>
+      <h4>Acabado Mate</h4>
+      <p>Elegancia aterciopelada</p>
+    </div>
+    <div class="effect-card">
+      <span>🌙</span>
+      <h4>Efecto Holográfico</h4>
+      <p>Reflejos iridiscentes</p>
+    </div>
+    <div class="effect-card">
+      <span>🎭</span>
+      <h4>Textura 3D</h4>
+      <p>Dimensión y relieve</p>
+    </div>
+    <div class="effect-card">
+      <span>⭐</span>
+      <h4>Cat Eye Magnético</h4>
+      <p>Efecto felino hipnotizante</p>
+    </div>
+  </div>
+</section>
+
 <footer id="contacto">
   <div class="footer-content">
     <div class="contact-info">
@@ -583,6 +806,3 @@
     </div>
   </div>
 </footer>
-
-</body>
-</html>
