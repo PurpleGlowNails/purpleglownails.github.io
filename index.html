@@ -36,18 +36,18 @@
     }
 
     header {
-      background: url('https://lh3.googleusercontent.com/pw/AP1GczPwUT9m8Z0s_ZoLe_7V-Vw7Do8dFuU_triSKexJxZEMgaGji46Cga4ANCQrU5DZBCk6w2jnoM4Dm25GdUxSYFBRlvRlSB_1yUlMUWW3se7moyHijzENHbfljjHoiKaP6FUr1zs37vUwoYSqtWTVvOaeiQ=w1200-h1599-s-no?authuser=0') center/contain no-repeat;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: #fff;
-      position: relative;
-      border-radius: 10px 10px 0 0;
-      margin: -20px -20px 0 -20px;
-      background-color: #f0e6ff;
-    }
+  background: url('https://lh3.googleusercontent.com/pw/AP1GczPwUT9m8Z0s_ZoLe_7V-Vw7Do8dFuU_triSKexJxZEMgaGji46Cga4ANCQrU5DZBCk6w2jnoM4Dm25GdUxSYFBRlvRlSB_1yUlMUWW3se7moyHijzENHbfljjHoiKaP6FUr1zs37vUwoYSqtWTVvOaeiQ=w1200-h1599-s-no?authuser=0') center/cover no-repeat;
+  height: 100vh; /* altura completa de la ventana */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  border-radius: 10px 10px 0 0;
+  margin: 0; /* eliminamos los márgenes negativos para que ocupe todo el ancho */
+  background-color: #f0e6ff; /* color de respaldo si la imagen no carga */
+}
 
     header::before {
       content: "";
