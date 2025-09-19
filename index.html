@@ -35,7 +35,7 @@
     }
 
     header {
-      background: url('https://lh3.googleusercontent.com/pw/AP1GczPwUT9m8Z0s_ZoLe_7V-Vw7Do8dFuU_triSKexJxZEMgaGji46Cga4ANCQrU5DZBCk6w2jnoM4Dm25GdUxSYFBRlvRlSB_1yUlMUWW3se7moyHijzENHbfljjHoiKaP6FUr1zs37vUwoYSqtWTVvOaeiQ=w1200-h1599-s-no?authuser=0') center/cover no-repeat;
+      background: url('https://lh3.googleusercontent.com/pw/AP1GczPwUT9m8Z0s_ZoLe_7V-Vw7Do8dFuU_triSKexJxZEMgaGji46Cga4ANCQrU5DZBCk6w2jnoM4Dm25GdUxSYFBRlvRlSB_1yUlMUWW3se7moyHijzENHbfljjHoiKaP6FUr1zs37vUwoYSqtWTVvOaeiQ=w1200-h1599-s-no?authuser=0') center/contain no-repeat;
       height: 100vh;
       display: flex;
       justify-content: center;
@@ -45,6 +45,7 @@
       position: relative;
       border-radius: 10px 10px 0 0;
       margin: -20px -20px 0 -20px;
+      background-color: #f0e6ff;
     }
 
     header::before {
@@ -197,6 +198,64 @@
       cursor: pointer;
       border: 2px solid rgba(155, 89, 182, 0.1);
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.15;
+      z-index: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .service-card > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .service-card:hover::before {
+      opacity: 0.25;
+    }
+
+    .service-card:nth-child(1)::before {
+      background-image: url('https://lh3.googleusercontent.com/pw/AP1GczPhma3Aj90BnuPXXtbaIiEb8CmmBnd6hG3yh-knSwOr8mG7CqCOXQRzRgchxaKOqre8w1wi7Y2CBVXdbfnNrQv6WUzA5EDkZorW1aQX7hNBV86osSYWTpZbxoGXNLN7uvSEdPgKN3EuXwPaeHHrLdG38w=w1640-h1640-s-no');
+    }
+
+    .service-card:nth-child(2)::before {
+      background-image: url('https://lh3.googleusercontent.com/pw/AP1GczNmqM0g3zTOl8-Q5G3C-hjLK31sL5-CXiJzQYQvBVV0T-dVa04aLEZqgFBfGPwIwqCVIXO1XqTXwLvJMy9MqVWg5vf_wB6gilQvXppegkDkGEEwkr-QNfC_blsJzlK9UNlRuGPLlAbkYJGozn616UEeLA=w1640-h1640-s-no');
+    }
+
+    .service-card:nth-child(3)::before {
+      background-image: url('https://lh3.googleusercontent.com/pw/AP1GczP4mdFMrgYd_TcI2o14kosmFAWNlDhP2bMUrP05PZdyPzhrVXshWS8QkUsKOSqm8yDQ9ygxq32rcDEpS7gWY56JufYEGJMYc1X88HS07JEn6CQ_DoExg4epH-So92dQNQDngvLa31wO8pi5m2orwPW6mg=w1640-h1640-s-no');
+    }
+
+    .service-card:nth-child(4)::before {
+      background-image: url('https://lh3.googleusercontent.com/pw/AP1GczM0og1doEeYaPGKyViutrwXF16oQ9PFh_psOLhqAi1ifnfBjVrWNV8tgxZvRQudfyRcdT_jrvo9Vo_NKMO-0naob00m3WFLWYEE0HS23botjw1q0jmvo8v9iuX8CqA7TrTDU_pvOyixy7sLgnIS1boh6w=w1640-h1640-s-no');
+    }
+
+    .service-card:nth-child(5)::before {
+      background-image: url('https://lh3.googleusercontent.com/pw/AP1GczOo1d1nnFj3Mupc9lKadstR4Ebsl1PKrmR1nDjm5la5IF8qPoImXV6Pt3SN8AeGGu8I4Ix3_eCSTlVNo-6-rVYEfpb-Vwop8rSnXcf7aS48O2e2vFQAefmaqZWJJEF4j4VXT2f8K88ZNUwvrpGCI6AbTA=w1640-h1640-s-no');
+    }
+
+    .service-card:nth-child(6)::before {
+      background-image: url('https://lh3.googleusercontent.com/pw/AP1GczO16-MPrmiZw7b7pdd8rm3gWXaUdJXOURXspE_6eetkCjJaJUORPAWhY7QWWaOfyH8I7S__lVpgfAA3LfjLvc403PPvudR6DAIlt57R8EXSLNL7pvslvRP38ncgPfMU-3bdwTZUpDyO9dimYN6oChvStg=w1640-h1640-s-no');
+    }
+
+    .service-card:nth-child(7)::before {
+      background-image: url('https://lh3.googleusercontent.com/pw/AP1GczMUPUc-ITz7tVr-F0labNa-MSijMGYl4KH8q8Q-r2jhlm960F2lqbcbyyC6y31nzq9y12QJ0FZuZpc_6XsoErLTqMxZXsE4ZQO3wq41KkflXxctI8a1PzZpmfZc22ElTpP-APZx75X9XQxpMZcZyQFO4A=w1640-h1640-s-no');
+    }
+
+    .service-card:nth-child(8)::before {
+      background-image: url('https://lh3.googleusercontent.com/pw/AP1GczMLoHT8Ov5qJ-Gn2xQXTpFJGVdPupbJcJdSYzOns_zGCQjcZrpJ-0zDIcfozqlGGmZwyeZNHsAJ4gJiCX1MYPc_T4FJrDzioQsAIpgjd8an4DhmmFP75R6E-cupPyXxgIEoxJdvZRsAT3Z8Piv2reAD5A=w1640-h1640-s-no');
     }
 
     .service-card:hover, .product-card:hover, .effect-card:hover {
@@ -436,6 +495,8 @@
       header {
         border-radius: 5px 5px 0 0;
         margin: -15px -15px 0 -15px;
+        background-size: contain;
+        background-color: #f0e6ff;
       }
 
       header::before {
