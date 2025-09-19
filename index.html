@@ -18,7 +18,7 @@
     }
 
     header {
-      background: url('https://images.pexels.com/photos/3997387/pexels-photo-3997387.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
+      background: url('https://images.pexels.com/photos/17850819/pexels-photo-17850819.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
       height: 100vh;
       display: flex;
       justify-content: center;
@@ -99,6 +99,54 @@
       text-align: center;
     }
 
+    #servicios, #galeria, #precios {
+      background: linear-gradient(-45deg, #f0e6ff, #ffe0f0, #e6d9ff, #ffd9ec);
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease-in-out infinite;
+      position: relative;
+    }
+
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      25% {
+        background-position: 100% 0%;
+      }
+      50% {
+        background-position: 100% 100%;
+      }
+      75% {
+        background-position: 0% 100%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    #servicios::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(248, 248, 255, 0.3);
+      z-index: 1;
+    }
+
+    #galeria::before, #precios::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(248, 248, 255, 0.3);
+      z-index: 1;
+    }
+
+    #servicios > *, #galeria > *, #precios > * {
+      position: relative;
+      z-index: 2;
+    }
+
     h2 {
       font-size: 2em;
       margin-bottom: 20px;
@@ -135,11 +183,14 @@
       margin-bottom: 10px;
     }
 
+    /* Ajuste de la galería: 3 columnas en escritorio, responsive abajo */
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 20px;
       padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .gallery-item {
@@ -147,6 +198,9 @@
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
     }
 
     .gallery-item img {
@@ -158,6 +212,7 @@
     .gallery-item .description {
       padding: 15px;
       text-align: center;
+      flex: 0 0 auto;
     }
 
     .gallery-item .description h3 {
@@ -290,6 +345,28 @@
       font-size: 0.9em;
       opacity: 0.8;
     }
+
+    /* Responsividad para la galería: 2 columnas en tablet, 1 en móvil */
+    @media (max-width: 900px) {
+      .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 600px) {
+      .gallery {
+        grid-template-columns: 1fr;
+        padding: 15px;
+      }
+
+      .header-content h1 {
+        font-size: 2.2em;
+      }
+
+      .header-content p {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -322,27 +399,83 @@
   </div>
 </section>
 
-<section id="galeria" class="gallery">
+<section id="galeria">
   <h2>Galería</h2>
-  <div class="gallery-item">
-    <img src="https://images.pexels.com/photos/3997385/pexels-photo-3997385.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Diseño moderno de uñas" loading="lazy">
-    <div class="description">
-      <h3>Uñas Minimalistas</h3>
-      <p>Elegante y sutil, ideal para cualquier ocasión.</p>
+  <div class="gallery">
+    <!-- Galería original (con descripción) -->
+    <div class="gallery-item">
+      <img src="https://images.pexels.com/photos/3997385/pexels-photo-3997385.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Diseño moderno de uñas - Uñas Minimalistas" loading="lazy">
+      <div class="description">
+        <h3>Uñas Minimalistas</h3>
+        <p>Elegante y sutil, ideal para cualquier ocasión.</p>
+      </div>
     </div>
-  </div>
-  <div class="gallery-item">
-    <img src="https://images.pexels.com/photos/3997387/pexels-photo-3997387.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Manicura elegante" loading="lazy">
-    <div class="description">
-      <h3>Uñas Neutras</h3>
-      <p>Colores neutros que combinan con todo.</p>
+
+    <div class="gallery-item">
+      <img src="https://images.pexels.com/photos/3997387/pexels-photo-3997387.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Manicura elegante - Uñas Neutras" loading="lazy">
+      <div class="description">
+        <h3>Uñas Neutras</h3>
+        <p>Colores neutros que combinan con todo.</p>
+      </div>
     </div>
-  </div>
-  <div class="gallery-item">
-    <img src="https://images.pexels.com/photos/3997386/pexels-photo-3997386.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Uñas decoradas" loading="lazy">
-    <div class="description">
-      <h3>Uñas Naturales</h3>
-      <p>Para un look fresco y natural.</p>
+
+    <div class="gallery-item">
+      <img src="https://images.pexels.com/photos/3997386/pexels-photo-3997386.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Uñas decoradas - Uñas Naturales" loading="lazy">
+      <div class="description">
+        <h3>Uñas Naturales</h3>
+        <p>Para un look fresco y natural.</p>
+      </div>
+    </div>
+
+    <!-- Galería adicional (tus 10 imágenes) -->
+    <div class="gallery-item">
+      <img src="https://lh3.googleusercontent.com/pw/AP1GczOpvCfDaduwQBwKApjJTtcwzvJ5RZO35hBu__ls8u2YfI8GIQBrX8u1ySZwtyV84xOJ9_KZyQtC4JkjbMwwgSQVbhafKoMv83t4HOCaIQ6K-o_dwpIizlBJD3166c457Io5vtCkGMYdkZE4A-qefDKCCQ=w1200-h1600-s-no" alt="Nuevo diseño 1" loading="lazy">
+      <div class="description"><h3>🎀</h3><p>Toque moderno y brillante.</p></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://lh3.googleusercontent.com/pw/AP1GczN21KcaETcgMpb9vjIExsAEgGM1hrkPJZS4mVWC6pw4R5ml7cWCexcdiaJ4f56nr_rnXxrww7DAlbz8-JhNlojc4uM5R-hF5VZ6qmJq1tvrIXN2WbGM3MvtKkfUufXSH91KYydmvjlfB7TA1TyKvjksXw=w1200-h1600-s-no" alt="Nuevo diseño 2" loading="lazy">
+      <div class="description"><h3>💕</h3><p>Estilo delicado y femenino.</p></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://lh3.googleusercontent.com/pw/AP1GczOgMJXpGDpRU91VFJvkEqiwgfhAStduuzOkiiO9T-v93bRwE2DohPEe7tIbznj7OsBSUI90I23rfJnAwQPpYMPabuK4_7ho6klne9yMsAGF59tCS-s3h87xdnoTg-jiQXbR8t_ve2QkMw6uz184J4uBxg=w1200-h1600-s-no" alt="Nuevo diseño 3" loading="lazy">
+      <div class="description"><h3>🖤</h3><p>Acabado profesional y limpio.</p></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://lh3.googleusercontent.com/pw/AP1GczOYMlYdzQlklHx9VKpDw5PmxX79y0Ihft0wvfIuZ2MRB7Ux-Q0sTsTw1FLrW2wp0eSnR2Ua_PkJP_4qU0cQx3hXs0cVktWpsEFHJ9M1o3EzW9sfQ31SQOH-F1nxLFDTZ-n5nsvCwa5wzSy2yZrTEJttDA=w1200-h1600-s-no" alt="Nuevo diseño 4" loading="lazy">
+      <div class="description"><h3>🩷🤍</h3><p>Detalles sutiles y elegantes.</p></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://lh3.googleusercontent.com/pw/AP1GczNqdPVcf8hUG7sLJJbm5Yu3Y6Y2Unfi1sXLJVdWnSnvKEMBnEIlez-b6ppv6or7gbVym533duri3EdfvKDG1gU2hBvx6WZ7CILofsHHxKsxGovjJoXbFVOhXYJEPg0uoQLUcunRTsty0RjF12bnDAfGDA=w1200-h1600-s-no" alt="Nuevo diseño 5" loading="lazy">
+      <div class="description"><h3>🌺</h3><p>Combinación de tonos neutros.</p></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://lh3.googleusercontent.com/pw/AP1GczPm2sCI9mZdX12nQRNhJX4GrRqdVsAN9VwLUMabmU0RWNlu7zjv5EqJp0CGen2Fo_8ICPTCIYsHnEb3KSmVJzhQuJ9usssw4GcccbHr1hpXFNiI1ocB-tjN5odZHSUsA7neXwz4cgSj-yCabNH4Bn6_tA=w1200-h1600-s-no" alt="Nuevo diseño 6" loading="lazy">
+      <div class="description"><h3>🪷</h3><p>Brillo y textura moderna.</p></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://lh3.googleusercontent.com/pw/AP1GczMmyRVy35F0srnPXYa1AM6Tg51SFjBVFgXemAE2Wxgf9bbpDicX6MNc_KXRMYSIeD5i0GNt4UhC7MX73ZHR2wb5pWvwbz8LAz_vsjUYaoIl2nkhGuGSME1PJ9pDyaaPG0lVb8Apgo5hB9_mBMWrFscPyg=w1200-h1600-s-no" alt="Nuevo diseño 7" loading="lazy">
+      <div class="description"><h3>🪻</h3><p>Acabado natural y elegante.</p></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://lh3.googleusercontent.com/pw/AP1GczOYTqoM-gsjgAxsRzbJLYFGFA3ICGyQ7-_o96OwC-49YX3HJLTqruPs2ucd8T5uxsD0ooD5Lar_4VVZ4pNkxDo6QDKwgA2HlJuHw3kLPl2hiycmaRlahyo3vxQ7VoqlLXikehvTk5VsVIAVOAMOi6zOgQ=w1200-h1600-s-no" alt="Nuevo diseño 8" loading="lazy">
+      <div class="description"><h3>🌸</h3><p>Detalles vibrantes y creativos.</p></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://lh3.googleusercontent.com/pw/AP1GczOg6k2kc7gRFpFiA0XAT37WJmhMYnlXi6b7dj3r3fEzYLSvz6mNI21HUqZbMmIfCXy1f7tjVVQdY683t_u5aMZXrGL8ZAL5AMUxScrJWhaYtMGygG6j_RYhxl46XdOCNTbx9rV5Nt2slHM5tYvz3W-85g=w1386-h1640-s-no" alt="Nuevo diseño 9" loading="lazy">
+      <div class="description"><h3>🌷</h3><p>Combinación de texturas y tonos.</p></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://lh3.googleusercontent.com/pw/AP1GczNemBgzG2djuU_Xex7zVJqrpkxfZUlcFr5bs2TFHFjGkg2L_BNoQjCElQiZGXcSgN9SfBPXNQISksIfp5L9Ns9tuLYglmhokkIkD_mNwMTongjM0ygY-cAPN0ea3sswxyuX_2XSpE7mc0tj_C3mLo_gSQ=w1056-h992-s-no" alt="Nuevo diseño 10" loading="lazy">
+      <div class="description"><h3></h3><p>Look final con acabado profesional.</p></div>
     </div>
   </div>
 </section>
@@ -385,19 +518,19 @@
         <div class="price-card">
             <h3>Retoque Acrilico</h3>
             <p>$65.000</p>
-        </div>    
+        </div>
         <div class="price-card">
             <h3>Retoque Poligel</h3>
             <p>$75.000</p>
-        </div> 
+        </div>
         <div class="price-card">
             <h3>Retoque Soft Gel (Press On)</h3>
             <p>$60.000</p>
-        </div>    
+        </div>
        <div class="price-card">
             <h3>Retiros Desde</h3>
             <p>$25.000</p>
-        </div> 
+        </div>
     </div>
 </section>
 
@@ -406,11 +539,14 @@
     <div class="contact-info">
       <h3>Información de Contacto</h3>
       <div class="contact-item">
-        <strong>📱 Teléfono/WhatsApp:</strong> 
+        <strong>📱 Teléfono/WhatsApp:</strong>
         <a href="tel:+573168251053">+57 316 825 1053</a>
       </div>
       <div class="contact-item">
-        <strong>📍 Ubicación:</strong> Madrid, Cundinamarca
+        <strong>📍 Ubicación:</strong> Mosquera, Cundinamarca
+      </div>
+      <div class="contact-item">
+        <strong>🏠 Servicio a Domicilio:</strong> Madrid, Funza y Mosquera
       </div>
       <div class="contact-item">
         <strong>🕒 Horarios:</strong> Lun - Sáb: 9:00 AM - 7:00 PM
@@ -420,7 +556,7 @@
     <div class="social-media">
       <h3>Síguenos en Redes Sociales</h3>
       <div class="social-icons">
-        <a href="#" class="social-icon instagram" title="Instagram" target="_blank">
+        <a href="https://www.instagram.com/purpleglow_nails/?igsh=MXkwZXprZ2QzeWI2bg%3D%3D" class="social-icon instagram" title="Instagram" target="_blank">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
           </svg>
